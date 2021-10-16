@@ -21,7 +21,7 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddHealthChecks();
             services.AddControllers();
             services.AddDbContext<SampleContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("SampleContext"),
@@ -51,6 +51,7 @@ namespace WebApi
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHealthChecks("/health");
                 endpoints.MapControllers();
             });
         }
