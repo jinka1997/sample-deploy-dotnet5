@@ -9,7 +9,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public string Get()
         {
-            return "sampleresponse";
+            return "sampleresponse2";
 
         }
     }
